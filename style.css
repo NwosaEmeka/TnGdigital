@@ -254,7 +254,11 @@ body {
 		display: block;
 	}
 }
-/* hero page mobile */
+@media (max-width: 780px) {
+	#hero {
+		margin-bottom: 0px;
+	}
+}
 
 .container {
 	max-width: 1110px;
@@ -317,6 +321,15 @@ body {
 @media (max-width: 780px) {
 	.promo__cards {
 		grid-template-columns: repeat(2, 1fr);
+	}
+	#promo {
+		padding: 30px 0 15px;
+	}
+	.promo__image {
+		height: 160px;
+	}
+	.btn {
+		margin-top: 15px;
 	}
 }
 
