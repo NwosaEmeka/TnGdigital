@@ -30,6 +30,7 @@ body {
 	position: fixed;
 	top: 0;
 	right: 0;
+	overflow-y: scroll;
 	background-color: #fff;
 	transform: translate3d(350px, 0, 0);
 	-webkit-transform: translate3d(350px, 0, 0);
@@ -53,8 +54,7 @@ body {
 	padding: 30px;
 }
 .nav__items--mobile .nav__links {
-	display: flex;
-	justify-content: space-between;
+	display: inline-block;
 	padding: 5px 0;
 	font-size: 1rem;
 	transition: all 0.5s ease;
@@ -62,6 +62,37 @@ body {
 	-moz-transition: all 0.5s ease;
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
+}
+.nav__items--mobile .inner__nav {
+	margin-left: 15px;
+	max-height: 0;
+	visibility: hidden;
+	overflow: hidden;
+	transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+}
+.nav__items--mobile .inner__nav.open {
+	visibility: visible;
+	max-height: 250px;
+}
+.mobile__hamburger {
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+	color: #999;
+}
+.mobile__hamburger--close {
+	display: none;
+}
+.mobile__hamburger.open .mobile__hamburger--close {
+	display: block;
+}
+.mobile__hamburger.open .mobile__hamburger--open {
+	display: none;
 }
 .mobile__contents .app__stores {
 	margin-top: 50px;
@@ -122,6 +153,9 @@ body {
 	max-height: 60px;
 	max-width: 60px;
 }
+.nav__list {
+	position: relative;
+}
 .nav__items {
 	display: flex;
 }
@@ -130,7 +164,7 @@ body {
 	font-size: 0.9rem;
 	color: #252525;
 }
-.nav__links:hover {
+.nav__list:hover .nav__links {
 	color: #0345bf;
 }
 .app__stores {
@@ -145,6 +179,50 @@ body {
 	display: none;
 	cursor: pointer;
 }
+/* Nested menu */
+.inner__nav {
+	display: block;
+	background-color: #fff;
+}
+.nav__bar .inner__nav {
+	position: absolute;
+	opacity: 0;
+	padding: 20px;
+	width: 250px;
+	left: 0;
+	visibility: hidden;
+	transform: translateY(30px);
+	-webkit-transform: translateY(30px);
+	-moz-transform: translateY(30px);
+	-ms-transform: translateY(30px);
+	-o-transform: translateY(30px);
+	transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+}
+.inner__list a {
+	color: #252525;
+	font-size: 0.9rem;
+	padding: 5px 0;
+	display: inline-block;
+}
+
+.inner__list a:hover {
+	color: #0345bf;
+}
+.nav__bar .nav__list:hover .inner__nav {
+	display: block;
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+}
+
 .announcement {
 	position: fixed;
 	height: 58px;

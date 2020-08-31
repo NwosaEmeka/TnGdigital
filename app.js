@@ -20,6 +20,19 @@ links.forEach((link) => {
 	});
 });
 
+// toggle mobile hamburger to display nested links
+const mobile_hamburgers = document.querySelectorAll('.mobile__hamburger');
+
+mobile_hamburgers.forEach((mobile_hamburger) => {
+	mobile_hamburger.addEventListener('click', (e) => {
+		const open_nav = e.target.parentElement; // returns the mobile__humbuger div
+		open_nav.classList.toggle('open');
+		const nested_list = e.target.parentElement.nextElementSibling; // return the inner__div ul
+		// console.log(nested_list);
+		nested_list.classList.toggle('open');
+	});
+});
+
 // glide.js for autoplay desktop
 let glide = new Glide('.desktop__glide', {
 	autoplay: 5000,
