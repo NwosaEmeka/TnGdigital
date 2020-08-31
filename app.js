@@ -33,6 +33,15 @@ mobile_hamburgers.forEach((mobile_hamburger) => {
 	});
 });
 
+//service worker for caching, check if the browser support serviceworker the register the service worker.
+
+if ('serviceWorker' in navigator) {
+	navigator.serviceWorker
+		.register('/sw.js')
+		.then((res) => console.log('Service Registered', res.scope))
+		.catch((err) => console.log('unable to register serviceworker', err));
+}
+
 // glide.js for autoplay desktop
 let glide = new Glide('.desktop__glide', {
 	autoplay: 5000,
